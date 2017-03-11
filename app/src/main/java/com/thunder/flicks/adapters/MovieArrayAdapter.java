@@ -3,6 +3,7 @@ package com.thunder.flicks.adapters;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.support.annotation.NonNull;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,15 +33,32 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
         ImageView ivMovieImage;
     }
 
+    private static class ImageOnlyViewHolder{
+        ImageView ivMovieImage;
+    }
+
     public MovieArrayAdapter(Context context, ArrayList<Movie> movies){
         super(context, android.R.layout.simple_list_item_1, movies);
     }
 
+    @Override
+    public int getViewTypeCount() {
+        return Movie.MovieType.values().length;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return getItem(position).movieType.ordinal();
+    }
+
+    // TODO: Inflate different ViewHolder based on popularity instead of hiding
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         //Get the movie data
         Movie movie = getItem(position);
+
+
         ViewHolder viewHolder;
 
         // Check if the view can be reused
@@ -64,10 +82,26 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
         viewHolder.tvTitle.setText(movie.getTitle());
         viewHolder.tvOverview.setText(movie.getOverview());
         int orientation = getContext().getResources().getConfiguration().orientation;
-        if(orientation == Configuration.ORIENTATION_PORTRAIT) {
-            Picasso.with(getContext()).load(movie.getPosterPath()).placeholder(R.drawable.port_placeholder).into(viewHolder.ivMovieImage);
+        Picasso.with(getContext()).load(movie.getPosterPath())
+                .placeholder(R.drawable.port_placeholder).into(viewHolder.ivMovieImage);
+
+        if (getContext().getResources().getConfiguration().orientation==
+                Configuration.ORIENTATION_PORTRAIT) {
+            // Check if the current position for popular movie
+            if (getItemViewType(position) == Movie.MovieType.POPULAR.ordinal()) {
+                viewHolder.tvTitle.setVisibility(View.GONE);
+                viewHolder.tvOverview.setVisibility(View.GONE);
+                Picasso.with(getContext()).load(movie.getBackdropPath())
+                        .placeholder(R.drawable.land_placeholder).into(viewHolder.ivMovieImage);
+                viewHolder.ivMovieImage.getLayoutParams().width =
+                        ViewGroup.LayoutParams.MATCH_PARENT;
+            }
         }else{
-            Picasso.with(getContext()).load(movie.getBackdropPath()).placeholder(R.drawable.land_placeholder).into(viewHolder.ivMovieImage);
+            // Check if the current position for popular movie
+            if (getItemViewType(position) == Movie.MovieType.POPULAR.ordinal()) {
+                Picasso.with(getContext()).load(movie.getBackdropPath())
+                        .placeholder(R.drawable.land_placeholder).into(viewHolder.ivMovieImage);
+            }
         }
 
         return convertView;
