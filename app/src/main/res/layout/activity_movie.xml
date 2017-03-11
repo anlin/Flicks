@@ -5,14 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.thunder.flicks.MovieActivity">
-
-
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@android:color/black"
+        android:background="@color/colorListBackground"
         android:id="@+id/lvMovies" />
 </RelativeLayout>

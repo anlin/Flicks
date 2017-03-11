@@ -12,7 +12,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="@dimen/movie_item_margin"
+        android:layout_marginBottom="@dimen/movie_item_margin"
+        android:layout_marginTop="@dimen/movie_item_margin"
         android:id="@+id/ivMovieImage" />
 
     <TextView
@@ -22,9 +24,9 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/ivMovieImage"
         android:layout_toEndOf="@+id/ivMovieImage"
-        android:textSize="24sp"
+        android:textSize="@dimen/movie_title_textsize"
         android:textStyle="bold"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorText"
         android:id="@+id/tvTitle" />
 
     <TextView
@@ -34,7 +36,8 @@
         android:layout_below="@+id/tvTitle"
         android:layout_toRightOf="@+id/ivMovieImage"
         android:layout_toEndOf="@+id/ivMovieImage"
-        android:textColor="@android:color/white"
+        android:textSize="@dimen/movie_overview_textsize"
+        android:textColor="@color/colorText"
         android:maxLines="6"
         android:layout_marginBottom="10dp"
         android:id="@+id/tvOverview" />
