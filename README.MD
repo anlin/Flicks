@@ -2,7 +2,7 @@
 
 **Flicks** shows the latest movies currently playing in theaters. The app utilizes the Movie Database API to display images and basic information about these movies to the user.
 
-Time spent: **4** hours spent in total
+Time spent: **6** hours spent in total
 
 ## User Stories
 
@@ -28,10 +28,11 @@ The following **bonus** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 Portrait Mode:
-<img src='http://i.imgur.com/isA8LZD.gif' title='Video Walkthrough' width='' alt='Video Walkthrough Portrait' />
+
+<img src='http://i.imgur.com/nmRP8al.gif' title='Video Walkthrough' width='' alt='Video Walkthrough Portrait' />
 
 Landscape Mode:
-<img src='http://i.imgur.com/Cj6a00w.gif' title='Video Walkthrough' width='' alt='Video Walkthrough Portrait' />
+<img src='http://i.imgur.com/2mPBArR.gif' title='Video Walkthrough' width='' alt='Video Walkthrough Portrait' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
