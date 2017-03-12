@@ -17,6 +17,10 @@ import com.thunder.flicks.models.Movie;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
+
 import static com.thunder.flicks.R.id.ivMovieImage;
 import static com.thunder.flicks.R.id.tvOverview;
 import static com.thunder.flicks.R.id.tvTitle;
@@ -27,10 +31,17 @@ import static com.thunder.flicks.R.id.tvTitle;
 
 public class MovieArrayAdapter extends ArrayAdapter<Movie> {
 
-    private static class ViewHolder{
+    static class ViewHolder{
+        @BindView(R.id.tvTitle)
         TextView tvTitle;
+        @BindView(R.id.tvOverview)
         TextView tvOverview;
+        @BindView(R.id.ivMovieImage)
         ImageView ivMovieImage;
+
+        public ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 
     private static class ImageOnlyViewHolder{
@@ -63,13 +74,9 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
 
         // Check if the view can be reused
         if(convertView == null){
-            // If there is no vie to reuse
-            viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.item_movie, parent, false);
-            viewHolder.tvTitle = (TextView) convertView.findViewById(tvTitle);
-            viewHolder.tvOverview = (TextView) convertView.findViewById(tvOverview);
-            viewHolder.ivMovieImage = (ImageView) convertView.findViewById(ivMovieImage);
+            viewHolder = new ViewHolder(convertView);
             // Cache the view holder
             convertView.setTag(viewHolder);
         }else{
@@ -83,6 +90,7 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
         viewHolder.tvOverview.setText(movie.getOverview());
         int orientation = getContext().getResources().getConfiguration().orientation;
         Picasso.with(getContext()).load(movie.getPosterPath())
+                .transform(new RoundedCornersTransformation(10,10))
                 .placeholder(R.drawable.port_placeholder).into(viewHolder.ivMovieImage);
 
         if (getContext().getResources().getConfiguration().orientation==
@@ -92,6 +100,7 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
                 viewHolder.tvTitle.setVisibility(View.GONE);
                 viewHolder.tvOverview.setVisibility(View.GONE);
                 Picasso.with(getContext()).load(movie.getBackdropPath())
+                        .transform(new RoundedCornersTransformation(10,10))
                         .placeholder(R.drawable.land_placeholder).into(viewHolder.ivMovieImage);
                 viewHolder.ivMovieImage.getLayoutParams().width =
                         ViewGroup.LayoutParams.MATCH_PARENT;
@@ -100,10 +109,13 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
             // Check if the current position for popular movie
             if (getItemViewType(position) == Movie.MovieType.POPULAR.ordinal()) {
                 Picasso.with(getContext()).load(movie.getBackdropPath())
+                        .transform(new RoundedCornersTransformation(10,10))
                         .placeholder(R.drawable.land_placeholder).into(viewHolder.ivMovieImage);
             }
         }
 
         return convertView;
     }
+
+
 }

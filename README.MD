@@ -2,7 +2,7 @@
 
 **Flicks** shows the latest movies currently playing in theaters. The app utilizes the Movie Database API to display images and basic information about these movies to the user.
 
-Time spent: **6** hours spent in total
+Time spent: **7.5** hours spent in total
 
 ## User Stories
 
@@ -23,17 +23,26 @@ The following **bonus** features are implemented:
 
 * [ ] When viewing a popular movie (i.e. a movie voted for more than 5 stars) the video should show the full backdrop image as the layout.  Uses [Heterogenous ListViews](http://guides.codepath.com/android/Implementing-a-Heterogenous-ListView) or [Heterogenous RecyclerView](http://guides.codepath.com/android/Heterogenous-Layouts-inside-RecyclerView) to show different layouts. (Partially done)
 
+* [ ] Allow user to view details of the movie including ratings and popularity within a separate activity.
+
+* [ ] Apply rounded corners for the poster or background images using [Picasso transformations](https://guides.codepath.com/android/Displaying-Images-with-the-Picasso-Library#other-transformations)
+
+* [ ] Apply the popular [Butterknife annotation library](http://guides.codepath.com/android/Reducing-View-Boilerplate-with-Butterknife) to reduce boilerplate code.
+
+* [ ] Replaced android-async-http network client with the popular [OkHttp](http://guides.codepath.com/android/Using-OkHttp) networking libraries.
+
+
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
 Portrait Mode:
 
-<img src='http://i.imgur.com/nmRP8al.gif' title='Video Walkthrough' width='' alt='Video Walkthrough Portrait' />
+<img src='http://i.imgur.com/7o3LuAH.gif' title='Video Walkthrough' width='' alt='Video Walkthrough Portrait' />
 
 Landscape Mode:
 
-<img src='http://i.imgur.com/2mPBArR.gif' title='Video Walkthrough' width='' alt='Video Walkthrough Portrait' />
+<img src='http://i.imgur.com/PHe7dge.gif' title='Video Walkthrough' width='' alt='Video Walkthrough Portrait' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
