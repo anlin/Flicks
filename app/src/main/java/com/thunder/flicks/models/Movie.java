@@ -18,6 +18,8 @@ public class Movie implements Serializable {
     String backdropPath;
     Double voteAverage;
     String releaseDate;
+    String id;
+    String videoKey;
     public MovieType movieType;
 
     public enum MovieType{
@@ -29,6 +31,10 @@ public class Movie implements Serializable {
     }
 
     public String getBackdropPath() {
+        return String.format("https://image.tmdb.org/t/p/w1000/%s",backdropPath);
+    }
+
+    public String getVideoKey() {
         return String.format("https://image.tmdb.org/t/p/w1000/%s",backdropPath);
     }
 
@@ -48,6 +54,10 @@ public class Movie implements Serializable {
         return releaseDate;
     }
 
+    public String getId() {
+        return id;
+    }
+
     public Movie(JSONObject jsonObject) throws JSONException {
         this.posterPath = jsonObject.getString("poster_path");
         this.overview = jsonObject.getString("overview");
@@ -56,6 +66,7 @@ public class Movie implements Serializable {
         this.voteAverage = jsonObject.getDouble("vote_average");
         this.movieType = this.voteAverage < 5.0 ? MovieType.NON_POPULAR : MovieType.POPULAR;
         this.releaseDate = jsonObject.getString("release_date");
+        this.id = jsonObject.getString("id");
     }
 
     public static ArrayList<Movie> fromJSONArray (JSONArray array){

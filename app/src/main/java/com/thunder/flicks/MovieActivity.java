@@ -46,7 +46,7 @@ public class MovieActivity extends AppCompatActivity {
         movieArrayAdapter = new MovieArrayAdapter(this, movies);
         lvMovies.setAdapter(movieArrayAdapter);
 
-//        AsyncHttpClient client = new AsyncHttpClient();
+        //AsyncHttpClient client = new AsyncHttpClient();
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(url)

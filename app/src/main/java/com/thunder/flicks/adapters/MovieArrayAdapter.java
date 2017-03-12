@@ -1,6 +1,7 @@
 package com.thunder.flicks.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.text.Layout;
@@ -12,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.thunder.flicks.MovieDetailActivity;
+import com.thunder.flicks.QuickPlayActivity;
 import com.thunder.flicks.R;
 import com.thunder.flicks.models.Movie;
 
@@ -65,9 +68,9 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
     // TODO: Inflate different ViewHolder based on popularity instead of hiding
     @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         //Get the movie data
-        Movie movie = getItem(position);
+        final Movie movie = getItem(position);
 
 
         ViewHolder viewHolder;
@@ -104,6 +107,14 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
                         .placeholder(R.drawable.land_placeholder).into(viewHolder.ivMovieImage);
                 viewHolder.ivMovieImage.getLayoutParams().width =
                         ViewGroup.LayoutParams.MATCH_PARENT;
+                viewHolder.ivMovieImage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getContext(), QuickPlayActivity.class);
+                        intent.putExtra("id", movie.getId());
+                        getContext().startActivity(intent);
+                    }
+                });
             }
         }else{
             // Check if the current position for popular movie
@@ -111,6 +122,14 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
                 Picasso.with(getContext()).load(movie.getBackdropPath())
                         .transform(new RoundedCornersTransformation(10,10))
                         .placeholder(R.drawable.land_placeholder).into(viewHolder.ivMovieImage);
+                viewHolder.ivMovieImage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getContext(), QuickPlayActivity.class);
+                        intent.putExtra("id", movie.getId());
+                        getContext().startActivity(intent);
+                    }
+                });
             }
         }
 

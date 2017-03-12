@@ -19,7 +19,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="@dimen/movie_item_margin"
-        android:id="@+id/ivMovieImage" />
+        android:id="@+id/ivMovieImage"
+        android:onClick="playVideo"/>
 
     <TextView
         tools:text="Fifty Shades Darker"

@@ -31,6 +31,12 @@ The following **bonus** features are implemented:
 
 * [ ] Replaced android-async-http network client with the popular [OkHttp](http://guides.codepath.com/android/Using-OkHttp) networking libraries.
 
+* [ ] Allow video trailers to be played in full-screen using the YouTubePlayerView.
+    * [ ] Overlay a play icon for videos that can be played.
+    * [ ] More popular movies should start a separate activity that plays the video immediately.
+    * [ ] Less popular videos rely on the detail page should show ratings and a YouTube preview.
+
+
 
 ## Video Walkthrough
 
