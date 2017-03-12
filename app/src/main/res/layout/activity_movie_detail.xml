@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorListBackground"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -67,7 +68,16 @@
         android:layout_alignParentEnd="true"
         android:textSize="@dimen/movie_overview_textsize"/>
 
-
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/youtue_play"
+        android:layout_centerVertical="true"
+        android:elevation="10dp"
+        android:id="@+id/ivPlay"
+        android:layout_alignBottom="@+id/ivMovieImage"
+        android:layout_alignTop="@+id/ivMovieImage"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
