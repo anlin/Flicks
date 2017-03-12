@@ -44,11 +44,11 @@ Here's a walkthrough of implemented user stories:
 
 Portrait Mode:
 
-<img src='http://i.imgur.com/7o3LuAH.gif' title='Video Walkthrough' width='' alt='Video Walkthrough Portrait' />
+<img src='http://i.imgur.com/BE7mIva.gif' title='Video Walkthrough' width='' alt='Video Walkthrough Portrait' />
 
 Landscape Mode:
 
-<img src='http://i.imgur.com/PHe7dge.gif' title='Video Walkthrough' width='' alt='Video Walkthrough Portrait' />
+<img src='http://i.imgur.com/qqRCn8K.gif' title='Video Walkthrough' width='' alt='Video Walkthrough Portrait' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
