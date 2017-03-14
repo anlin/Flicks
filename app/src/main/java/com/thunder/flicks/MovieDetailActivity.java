@@ -48,6 +48,7 @@ public class MovieDetailActivity extends AppCompatActivity {
         tvReleaseDate.setText("Release Date: " + movie.getReleaseDate());
     }
 
+    // Play button call backs. Open quick play activiy
     public void playVideo(View view) {
         Intent intent = new Intent(MovieDetailActivity.this, QuickPlayActivity.class);
         intent.putExtra("id", movie.getId());
