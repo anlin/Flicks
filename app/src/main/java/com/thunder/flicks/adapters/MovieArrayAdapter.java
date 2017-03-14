@@ -7,18 +7,15 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.graphics.Palette;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
-import com.thunder.flicks.MovieDetailActivity;
 import com.thunder.flicks.QuickPlayActivity;
 import com.thunder.flicks.R;
 import com.thunder.flicks.models.Movie;
@@ -28,10 +25,6 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
-
-import static com.thunder.flicks.R.id.ivMovieImage;
-import static com.thunder.flicks.R.id.tvOverview;
-import static com.thunder.flicks.R.id.tvTitle;
 
 /**
  * Created by anlinsquall on 7/3/17.
@@ -115,7 +108,7 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
                 viewHolder.ivMovieImage.getLayoutParams().width =
                         ViewGroup.LayoutParams.MATCH_PARENT;
                 viewHolder.ivPlay.setVisibility(ImageView.VISIBLE);
-                getColour(movie.getBackdropPath(), convertView);
+                applyItemBackgroundColour(movie.getBackdropPath(), convertView);
                 viewHolder.ivMovieImage.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -145,7 +138,8 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
         return convertView;
     }
 
-    private void getColour (String imageUrl, final View view){
+    // To apply list item background colour based on swatches from backdrop image
+    private void applyItemBackgroundColour(String imageUrl, final View view){
         Picasso.with(getContext())
                 .load(imageUrl)
                 .into(new Target() {
