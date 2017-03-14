@@ -41,4 +41,16 @@
         android:maxLines="4"
         android:id="@+id/tvOverview" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/youtue_play"
+        android:layout_centerVertical="true"
+        android:elevation="10dp"
+        android:id="@+id/ivPlay"
+        android:layout_alignBottom="@+id/ivMovieImage"
+        android:layout_alignTop="@+id/ivMovieImage"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"/>
+
 </RelativeLayout>

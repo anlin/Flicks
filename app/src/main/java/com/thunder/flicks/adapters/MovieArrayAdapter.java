@@ -3,7 +3,10 @@ package com.thunder.flicks.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.support.v7.graphics.Palette;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +14,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 import com.thunder.flicks.MovieDetailActivity;
 import com.thunder.flicks.QuickPlayActivity;
 import com.thunder.flicks.R;
@@ -41,6 +46,8 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
         TextView tvOverview;
         @BindView(R.id.ivMovieImage)
         ImageView ivMovieImage;
+        @BindView(R.id.ivPlay)
+        ImageView ivPlay;
 
         public ViewHolder(View view) {
             ButterKnife.bind(this, view);
@@ -107,6 +114,8 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
                         .placeholder(R.drawable.land_placeholder).into(viewHolder.ivMovieImage);
                 viewHolder.ivMovieImage.getLayoutParams().width =
                         ViewGroup.LayoutParams.MATCH_PARENT;
+                viewHolder.ivPlay.setVisibility(ImageView.VISIBLE);
+                getColour(movie.getBackdropPath(), convertView);
                 viewHolder.ivMovieImage.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -134,6 +143,35 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
         }
 
         return convertView;
+    }
+
+    private void getColour (String imageUrl, final View view){
+        Picasso.with(getContext())
+                .load(imageUrl)
+                .into(new Target() {
+                    @Override
+                    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                        Palette.from(bitmap)
+                                .generate(new Palette.PaletteAsyncListener() {
+                                    @Override
+                                    public void onGenerated(Palette palette) {
+                                        Palette.Swatch textSwatch = palette.getLightVibrantSwatch();
+                                        if(textSwatch!=null)
+                                            view.setBackgroundColor(textSwatch.getRgb());
+                                    }
+                                });
+                    }
+
+                    @Override
+                    public void onBitmapFailed(Drawable errorDrawable) {
+
+                    }
+
+                    @Override
+                    public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+                    }
+                });
     }
 
 

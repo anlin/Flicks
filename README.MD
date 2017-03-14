@@ -2,7 +2,7 @@
 
 **Flicks** shows the latest movies currently playing in theaters. The app utilizes the Movie Database API to display images and basic information about these movies to the user.
 
-Time spent: **10.5** hours spent in total
+Time spent: **11** hours spent in total
 
 ## User Stories
 
@@ -44,7 +44,7 @@ Here's a walkthrough of implemented user stories:
 
 Portrait Mode:
 
-<img src='http://i.imgur.com/BE7mIva.gif' title='Video Walkthrough' width='' alt='Video Walkthrough Portrait' />
+<img src='http://i.imgur.com/YLcpVg7.mp4' title='Video Walkthrough' width='' alt='Video Walkthrough Portrait' />
 
 Landscape Mode:
 
@@ -58,8 +58,9 @@ Describe any challenges encountered while building the app.
 
 ## Open-source libraries used
 
-- [Android Async HTTP](https://github.com/loopj/android-async-http) - Simple asynchronous HTTP requests with JSON parsing
 - [Picasso](http://square.github.io/picasso/) - Image loading and caching library for Android
+- [Butterknife annotation library](http://jakewharton.github.io/butterknife/) - reduce boilerplate code.
+- [OkHttp](http://square.github.io/okhttp/) - Networking library
 
 ## License
 
