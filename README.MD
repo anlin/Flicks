@@ -44,7 +44,7 @@ Here's a walkthrough of implemented user stories:
 
 Portrait Mode:
 
-<img src='http://i.imgur.com/YLcpVg7.mp4' title='Video Walkthrough' width='' alt='Video Walkthrough Portrait' />
+<img src='http://i.imgur.com/YLcpVg7.gifv' title='Video Walkthrough' width='' alt='Video Walkthrough Portrait' />
 
 Landscape Mode:
 
