@@ -36,8 +36,12 @@ public class MovieDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_movie_detail);
 
         ButterKnife.bind(this);
-
         movie = (Movie) getIntent().getSerializableExtra("movie");
+        populateViewWithData();
+    }
+
+    // Populate views with data
+    private void populateViewWithData() {
         Picasso.with(this).load(movie.getBackdropPath())
                 .transform(new RoundedCornersTransformation(10,10))
                 .placeholder(R.drawable.land_placeholder)

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -46,7 +47,6 @@ public class MovieActivity extends AppCompatActivity {
         movieArrayAdapter = new MovieArrayAdapter(this, movies);
         lvMovies.setAdapter(movieArrayAdapter);
 
-        //AsyncHttpClient client = new AsyncHttpClient();
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(url)
@@ -54,7 +54,8 @@ public class MovieActivity extends AppCompatActivity {
         client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-
+                Toast.makeText(MovieActivity.this, "There is something wrong: " + e.getMessage(),
+                        Toast.LENGTH_LONG).show();
             }
 
             @Override
